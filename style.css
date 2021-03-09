@@ -1,0 +1,108 @@
+/*
+This is a good layout for a mobile-first CSS template.
+Following this flow will minimize the number of styles you need to write and will ensure you are thinking, designing and developing mobile-first.
+Most of your styles get written like standard CSS, but for your mobile presentation. Generally speaking, a good mobile presention will stretch out nicely for larger screens.
+
+Sometimes, when we stretch out to larger screens, we need to make minor tweaks for the larger devices -- you can make these tweaks in the tablet media query, or if the issue exists on desktop only, the desktop media query.
+You will find this is far easier than the opposite task of using CSS to cram your desktop experience into a mobile device.
+*/
+/*********************************************************************
+ LOADS IN A NICE RESET TO ENSURE ALL BROWSERS HAVE THE SAME BASE STYLES
+*********************************************************************/
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
+
+/*********************************************************************
+  YOUR MOBILE/BASE STYLES GO HERE
+*********************************************************************/
+* {
+    box-sizing: border-box;
+    background-color: #b30000;
+}
+
+html, body {
+    /* Sets default font-size to 16px, ensuring 1em = 16px; */
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* truthfully this was trial and error, it just so happened to work :) */
+.filter {
+    color: #ffffff;
+    border-color: #000000;
+}
+
+.blackletters {
+    color: #000000;
+}
+
+/* standard for maximixing space without
+bleeding over the margin */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+/* To create a flexbox for images so they can appear
+in a row with space between them */
+#race {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* centers the captions under the photos, adjusts
+the space between the images and ensures that the transition
+will be 5 seconds long */
+.item {
+    text-align: center;
+    flex-basis: 48%;
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.item.active {
+    display: block;
+}
+
+/* ensures that images will be the maximum width within
+their blocks */
+img {
+    display: block;
+    width: 100%;
+}
+
+/* ensures that the same styles will be applied
+to selected items and adds a margin botom of 10
+pixels */
+select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/*********************************************************************
+  YOUR TABLET/DESKTOP STYLES GO HERE
+*********************************************************************/
+@media(min-width: 681px) {
+
+    /* Any adjustments for tablets and larger go here.
+    Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
+    /* adjusts the rows so there are three images in a row for tablets
+and desktops */
+    .item {
+        flex-basis: 33%;
+    }
+
+    select {
+        width: 33%;
+    }
+}
+
+/*********************************************************************
+  YOUR DESKTOP-ONLY STYLES GO HERE
+*********************************************************************/
+@media(min-width: 729px) {
+    /* Any adjustments for desktop and larger go here.
+    Note these styles will be applied to anything 729px or larger -- so desktop */
+}
